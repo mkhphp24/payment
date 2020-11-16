@@ -12,7 +12,10 @@ $klein = new Klein();
 
 $klein->respond('GET', '/', function (Request $request,Response $response) {
     $stepCookies = $request->cookies()->get('step');
-    $response->redirect('/step' . $stepCookies);
+    if($stepCookies < 4) {
+        $response->redirect('/step' . $stepCookies);
+    } else { $response->redirect('/error' ); }
+
 });
 
 
@@ -38,7 +41,7 @@ $klein->respond(['GET'], '/success', function (Request $request,Response $respon
 
 $klein->respond(['GET'], '/error', function (Request $request,Response $response) {
     $homeController=new HomeController();
-    return  $homeController->error($request,$response,'you alredy apply');
+    return  $homeController->error($request,$response,'you already apply');
 });
 
 
