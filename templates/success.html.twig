@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{titile}}{% endblock %}
+
+{% block body %}
+    <div class="row container" style="margin: 0 auto;">
+        <button class="btn btn-primary prevBtn btn-lg pull-left target" onclick="window.location.href='/new'" type="button">new user</button>
+    </div>
+
+<div class="row setup-content" id="step-1">
+    <div class="col-xs-6 col-md-offset-3">
+        <div class="col-md-12">
+            <span style="width: 400px">
+                {{message}} </span>
+        </div>
+    </div>
+</div>
+{% endblock %}

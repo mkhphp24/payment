@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+
+    <link rel='stylesheet prefetch' href='/public/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='/public/css/custom.css'>
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+
+    <style>
+
+    </style>
+</head>
+<body onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+{% block menu %}{% endblock %}
+<div class="container" style="padding-top: 70px">
+    {% block body %}
+
+    {% endblock %}
+</div>
+
+    {% block javascripts %}
+        <script type="text/javascript">
+            window.history.forward();
+        function noBack()
+        {
+            window.history.forward();
+        }
+        </script>
+    {% endblock %}
+
+</body>
+</html>

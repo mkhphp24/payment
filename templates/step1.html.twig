@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{titile}}{% endblock %}
+
+{% block body %}
+    {{ include('menu.html.twig') }}
+
+<div class="row setup-content" id="step-1">
+    <div class="col-xs-6 col-md-offset-3">
+        <div class="col-md-12">
+            <h3> Step 1</h3>
+            <form id="form_step1" action="/step1" method="post">
+                <div class="form-group">
+                    <label class="control-label">First Name</label>
+                    <input maxlength="100" value="{{ dataForm['firstname'] }}" type="text" name="firstname" id="firstname" required="required" class="form-control" placeholder="Enter First Name">
+                    <small class="text-danger">{{ errorMesage['firstname']['error']|raw }}</small>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Last Name</label>
+                    <input maxlength="100" type="text" value="{{ dataForm['lastname']}}" name="lastname" required="required" class="form-control" placeholder="Enter Last Name">
+                    <small class="text-danger">{{ errorMesage['lastname']['error']|raw  }}</small>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Telephone</label>
+                    <input  maxlength="15" type="text" value="{{ dataForm['telephone'] }}" name="telephone" required="required" class="form-control" placeholder="Enter your Telephone">
+                    <small class="text-danger">{{ errorMesage['telephone']['error']|raw  }}</small>
+                </div>
+                <button class="btn btn-primary nextBtn btn-lg pull-right target" step="1" target="#step-2" type="submit">Next</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
